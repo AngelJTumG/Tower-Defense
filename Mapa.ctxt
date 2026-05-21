@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Mapa
+comment1.params=
+comment1.target=Mapa()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ perderVida()
+comment4.params=
+comment4.target=void\ generarZombie()
+comment5.params=
+comment5.target=void\ colocarTorre()
+comment6.params=
+comment6.target=void\ aumentarDificultad()
+comment7.params=
+comment7.target=void\ verificarVictoria()
+numComments=8
