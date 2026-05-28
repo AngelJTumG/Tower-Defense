@@ -6,10 +6,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Zombie extends Actor
+public class Zombie extends Enemigo
 {
     private int vida = 3;
-
+    private GreenfootSound grito = new GreenfootSound("Zombie.wav");
     private int punto = 0;
 
     private int[][] ruta = {
@@ -29,6 +29,7 @@ public class Zombie extends Actor
     {
         GreenfootImage img = getImage();
         img.scale(64, 64);
+        grito.setVolume(80);
     }
 
     public void act()
@@ -64,6 +65,11 @@ public class Zombie extends Actor
 
         if (vida <= 0)
         {
+            grito.play();
+            Mapa mapa = (Mapa)getWorld();
+            
+            mapa.ganarDinero(20);
+
             getWorld().removeObject(this);
         }
     }

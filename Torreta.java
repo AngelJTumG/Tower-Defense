@@ -6,14 +6,16 @@ import java.util.List;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Torreta extends Actor
+public class Torreta extends TORRETAS
 {
-    private int tiempoDisparo = 0;
+    protected int tiempoDisparo = 0;
+    private GreenfootSound disparo = new GreenfootSound("Piu.wav");
 
     public Torreta()
     {
         GreenfootImage img = getImage();
         img.scale(74, 74);
+        disparo.setVolume(80);
     }
 
     public void act()
@@ -25,14 +27,15 @@ public class Torreta extends Actor
     {
         tiempoDisparo++;
 
-        List<Zombie> enemigos =
-            getObjectsInRange(150, Zombie.class);
+        List<Enemigo> enemigos =
+            getObjectsInRange(150, Enemigo.class);
 
         if (!enemigos.isEmpty() && tiempoDisparo > 50)
         {
-            Zombie objetivo = enemigos.get(0);
+            Enemigo objetivo = enemigos.get(0);
 
-            Bala bala = new Bala(objetivo);
+            Bala bala = new Bala(objetivo,1);
+            disparo.play();
 
             getWorld().addObject(
                 bala,

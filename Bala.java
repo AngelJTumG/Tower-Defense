@@ -8,11 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bala extends Actor
 {
-    private Zombie objetivo;
+    private Enemigo objetivo;
+    private int dano=1;
 
-    public Bala(Zombie enemigo)
+    public Bala(Enemigo enemigo,int d)
     {
         objetivo = enemigo;
+        dano = d; 
     }
 
     public void act()
@@ -37,12 +39,12 @@ public class Bala extends Actor
 
     public void golpear()
     {
-        Zombie enemigo =
-            (Zombie)getOneIntersectingObject(Zombie.class);
+        Enemigo enemigo =
+            (Enemigo)getOneIntersectingObject(Enemigo.class);
 
         if (enemigo != null)
         {
-            enemigo.recibirDanio(1);
+            enemigo.recibirDanio(dano);
 
             getWorld().removeObject(this);
         }
